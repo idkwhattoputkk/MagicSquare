@@ -18,7 +18,10 @@ class MagicSquareTest {
 		magico.setX(x);
 	}
 	public void setupScenary3() {
-		
+		magico = new MagicSquare();
+		int x=(int) (Math.random()*100);
+	    x = x*2;
+		magico.setX(x);
 	}
 	@Test
 	public void testMethod1() {
@@ -30,14 +33,21 @@ class MagicSquareTest {
 			}
 		}
 		
-		@Test
-		public void testMethod2() {
-			try {
-				setupScenary2();
-				magico.createMagicSquare("DOWN", "SO");
-				fail("Se esperaba excepcion IsNotOrNullException");
-			}catch(Exception ex) {}
+	@Test
+	public void testMethod2() {
+		try {
+			setupScenary2();
+			magico.createMagicSquare("DOWN", "SO");
+			fail("Se esperaba excepcion IsNotOrNullException");
+		}catch(Exception ex) {}
 		
+	}
+	@Test
+	public void testMethod3() {
+		try {
+			setupScenary3();
+			magico.createMagicSquare(null, null);
+		}catch(Exception ex) {}
 		
 	}
 
